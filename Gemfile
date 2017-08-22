@@ -14,7 +14,7 @@ gem 'rake'
 gem 'bcrypt'
 gem 'rest-client'
 gem 'dotenv'
-
+gem 'faker'
 gem 'shotgun', '~>0.9.1'
 
 group :test do
@@ -26,5 +26,5 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
+  
 end
