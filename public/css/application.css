@@ -1,0 +1,204 @@
+html, body{
+		height:100%;
+}
+
+.grandParentContaniner{
+		display:table; height:100%; margin: 0 auto;
+}
+
+.container {
+	display: inline-block;
+ 	vertical-align: middle;
+}
+
+.question-list {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 5px;
+}
+
+#log_out_button {
+	/*background-color: none; */
+}
+
+.deck {
+	background-color: #3dd7e5;
+	padding: 26px;
+	margin: 10px; 
+	text-align:center;
+}
+.deck:hover {
+	background-color: #32aeba;
+
+}
+
+.deck-links{
+	color: white;
+	text-decoration-line: none;
+}
+
+.deck-links:hover {
+	color: #eaeaea;
+}
+
+.author {
+float: right;
+padding-right: 15px;
+padding-top: 12px;
+}
+
+.question-link {
+	text-decoration-line: none;
+	font-size: 20px;
+	font-weight: bold;
+	color: black;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 95px;
+
+}
+
+header {
+	width: 100%;
+	height: 140px;
+	background-color: #3dd7e5;
+	color: white;
+}
+
+header h1 {
+	font-size: 50px;
+	position: relative;
+  margin: 0px;
+  float:left;
+  padding-top: 48px;
+  padding-left: 40px;
+}
+
+input {
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+.header_links {
+	font-size: 20px;
+	font-weight: bold;
+	position: relative;
+	padding-top: 77px;
+	padding-right: 45px;
+	color: white;
+	float: right;
+}
+
+#Reg_title {
+	padding-left: 50px;
+	padding-top: 20px;
+}
+
+#Login_title {
+	padding-left: 96px;
+	padding-top: 20px;
+}
+
+.form-inputs {
+	padding: 10px;
+	font-size: 17px;
+}
+
+.input-box {
+	width: 100%;
+	background-color: #e8e8e8;
+}
+.home-page-links{
+	margin: 15px;
+	padding: 10px;
+
+}
+.submit-button {
+	width: 100%;
+	background-color: #3dd7e5;
+	padding: 10px;
+	background-size:50px;
+	color: white;
+}
+.nav-links {
+	text-decoration-line: none;
+	color: white;
+	margin: 1px;
+}
+
+@media only screen and (max-width: 737px) {
+    header {
+      background-color: orange;
+		}
+
+		header h1 {
+			font-size: 40px;
+			padding-top: 57px;
+		}
+
+		.header_links {
+			font-size: 18px;
+		}
+
+		.submit-button {
+			background-color: orange;
+		}
+
+@media only screen and (max-width: 627px) {
+    header {
+      background-color: pink;
+		}
+
+		header h1 {
+			font-size: 30px;
+			padding-top: 63px;
+		}
+
+		.header_links {
+			font-size: 16px;
+		}
+
+		.submit-button {
+			background-color: pink;
+		}
+}
+
+@media only screen and (max-width: 518px) {
+    header {
+      background-color: #c697ef;
+		}
+
+		header h1 {
+			font-size: 20px;
+			padding-top: 72px;
+		}
+
+		.header_links {
+			font-size: 14px;
+		}
+
+		.submit-button {
+			background-color: #c697ef;
+		}
+}
+
+
+@media only screen and (max-width: 408px) {
+    header {
+      background-color: #6bffb7;
+		}
+
+		header h1 {
+			font-size: 18px;
+			padding-top: 72px;
+		}
+
+		.header_links {
+			font-size: 13px;
+		}
+
+		.submit-button {
+			background-color: #6bffb7;
+		}
+}
