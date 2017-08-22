@@ -1,23 +1,28 @@
+get '/messages' do 
+	@messages = Message.all 
+	erb :'/messages/show'
+end 
 
 post '/messages' do 
 
-	send_simple_message
-	
 	if logged_in?
 		@message = Message.new(content: params[:content], user_id: current_user.id)
+		
 		if @message.save 
-			redirect '/messages/new'
+			send_email(@message.content)
+			redirect '/messages'
 		else 
 			@errors = @message.errors.full_messages
-			erb :"/message/new"
+			erb :"/messages/new"
 		end 
 	else 
 		@message = Message.new(content: params[:content])
 		if @message.save 
-			redirect '/messages/new'
+			send_email(@message.content)
+			redirect '/messages'
 		else 
 			@errors = @message.errors.full_messages
-			erb :"/message/new"
+			erb :"/messages/new"
 		end 
 	end 
 end 
