@@ -1,6 +1,6 @@
 get "/" do 
 
-	redirect '/users/new' 
+	redirect '/messages/new' 
 
 end 
 

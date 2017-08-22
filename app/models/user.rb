@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :email, :user_name, uniqueness: true
 
   #Association examples
-  # has_many :images
+  has_many :messages
   # has_many :questions, foreign_key: 'author_id'
   # has_many :answers, foreign_key: 'author_id'
   # has_many :comments

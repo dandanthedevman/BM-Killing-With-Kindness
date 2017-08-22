@@ -1,6 +1,5 @@
 User.destroy_all
 
-
 User.create!(user_name: "dan", email: "dan@dan.com", password: "123")
 
 
