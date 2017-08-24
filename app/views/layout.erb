@@ -1,53 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
-  <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Parallax Template - Materialize</title>
 
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- javascripts -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/js/application.js"></script>
+  <!-- materialize -->
+ <script type="text/javascript" src="/js/materialize.min.js"></script>
+ <script src="/js/application.js"></script>
+ <script src="/js/init.js"></script>
 
-  <title></title>
-
-  <header>
-
-    <nav>
-        <% if logged_in? %>
-          
-          <div class="header_links">
-            <span><%= current_user.user_name %></span>
-            
-            <form action="/sessions/<%= current_user.id%>" method="POST">
-              <input type="hidden" name="_method" value="DELETE">
-              <input type="submit" value="Log_out">
-            </form> 
-          </div>  
-          
-        <% else %>
-          <a class= "header_links" href="/sessions/new">Login</a>
-       
-          <a class= "header_links" href="/users/new">Sign Up</a>
-        <% end %>
-    </nav>
-
-  </header>
 </head>
 <body>
-  <% if @errors %>
-    <ul>
-      <% @errors.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  
+  <nav class="white" role="navigation">
+    <% if logged_in? %>
+      <div class="nav-wrapper container">
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li>
+            <form action="/sessions/<%= current_user.id%>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Log Out</button>            
+            </form> 
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="/">Home</a></li>
+          <li>
+            <form action="/sessions/<%= current_user.id%>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Log Out</button>
+            </form> 
+          </li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>  
+    <% else %>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        <li><a href="/sessions/new">Login</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/sessions/new">Login</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse">
+        <i class="material-icons">menu</i>
+      </a>
+    <% end %>
+  </nav>
+  <div class=container>
+    <% if @errors %>
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 
   <%= yield %>
 </body>
