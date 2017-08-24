@@ -24,16 +24,22 @@
     <% if logged_in? %>
       <div class="nav-wrapper container">
         <ul class="right hide-on-med-and-down">
-          <li><a href=""><%= current_user.user_name.capitalize %></a></li>
+          <li><a href="/">Home</a></li>
           <li>
             <form action="/sessions/<%= current_user.id%>" method="POST">
               <input type="hidden" name="_method" value="DELETE">
-              <input type="submit" value="Log_out">
+              <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Log Out</button>            
             </form> 
           </li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
-          <li><a href="#">Navbar Link</a></li>
+          <li><a href="/">Home</a></li>
+          <li>
+            <form action="/sessions/<%= current_user.id%>" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
+              <button class="btn waves-effect waves-light cyan lighten-2" type="submit" name="action">Log Out</button>
+            </form> 
+          </li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse">
           <i class="material-icons">menu</i>
@@ -41,12 +47,15 @@
       </div>  
     <% else %>
       <ul class="right hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
         <li><a href="/sessions/new">Login</a></li>
         <li><a href="/users/new">Sign Up</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/sessions/new">Login</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse">
         <i class="material-icons">menu</i>
