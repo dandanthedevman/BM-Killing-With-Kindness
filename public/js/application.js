@@ -52,7 +52,7 @@ var messageUpdate = function(response){
 }
 
 var messagefail = function(response){
-  console.log(response);
+ $('#send-message-column').prepend(response.responseText);
 }
 
 
