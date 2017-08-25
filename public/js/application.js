@@ -33,8 +33,9 @@ var messageListener = function(){
 
 var handleMessage = function(e) {
   e.preventDefault();
-  ajaxPromise = messageRequest(this)
+  ajaxPromise = messageRequest(this);
   ajaxPromise.done(messageUpdate.bind(this));
+  ajaxPromise.fail(messagefail.bind(this));
 }
 
 var messageRequest = function(element) {
@@ -47,59 +48,12 @@ var messageRequest = function(element) {
 }
 
 var messageUpdate = function(response){
- $('#send-message-column').replaceWith(response)
+ $('#send-message-column').replaceWith(response);
 }
 
-// // Post delete functions 
-
-// var deleteListener = function(){
-//   $( '.post-container' ).on( "click", ".delete", handleDelete);
-// }
-
-// var handleDelete = function(e) {
-//   e.preventDefault();
-//   ajaxPromise = deleteRequest(this)
-//   ajaxPromise.done(postDelete.bind(this));
-// }
-
-// var deleteRequest = function(element) {
-//   var ajaxOptions = {method: 'DELETE', 
-//                      url: $(element).attr('href')
-//                     };
-//   var ajaxPromise = $.ajax(ajaxOptions);
-//   return ajaxPromise;
-// }
-
-// var postDelete = function(response){
-//   $(this).closest('article').remove()
-// }
-
-// // Post add functions 
-
-// var postListener = function(){
-//   $( '#posts' ).on( "submit", handlePost);
-// }
-
-// var handlePost = function(e) {
-//   e.preventDefault();
-//   ajaxPromise = postRequest(this)
-//   ajaxPromise.done(postNew.bind(this));
-// }
-
-// var postRequest = function(element) {
-//   var ajaxOptions = {method: 'POST', 
-//                      url: $(element).attr('action'),
-//                      data: $(element).serialize()
-//                     };
-//   var ajaxPromise = $.ajax(ajaxOptions);
-//   return ajaxPromise;
-// }
-
-// var postNew = function(response){
-//   $(this).siblings('.post-container').replaceWith(response)
-// }
-
-
+var messagefail = function(response){
+ $('#send-message-column').prepend(response.responseText);
+}
 
 
 
