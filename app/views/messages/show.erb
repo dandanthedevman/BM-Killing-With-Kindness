@@ -1,17 +1,22 @@
 
 
 <div class="container">
-
-	<h1>Thank you for sending a positive message</h1>
-	
-  <h2>Together we can end hate, one small act of kindness at a time </h3>
-
-	<% @messages.each do |message| %>
-  	<ul>
-  		<li> <%= message.content %></li>
-  	</ul>
-	<% end  %>
-
-	</form>
+  <div class="col s12 center">
+  	<h3 class="postive-h3">Thank you for sending a positive message</h3>
+  
+    <h5>Together we can end hate, one small act of kindness at a time </h5>
+  	<% @messages.each do |message| %>
+    	<ul>
+      	<li>
+          <div class="card darken-4 z-depth-4"">
+            <div class="card-content black-text">
+              <span class="card-title"><%=message.user.user_name %></span>
+              <p><%= message.content %></p>
+            </div>
+          </div>
+        </li>
+    	</ul>
+  	<% end  %>
+  </div>
 </div>
 
