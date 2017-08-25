@@ -4,7 +4,7 @@ User.destroy_all
 Message.destroy_all
 
 # crates admim user 
-User.create!(user_name: "dan", email: "dan@dan.com", password: "123")
+User.create!(user_name: "anonymous", email: "dan@dan.com", password: "123")
 
 # creates random users 
 40.times do 
