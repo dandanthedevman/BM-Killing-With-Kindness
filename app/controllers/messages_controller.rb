@@ -11,22 +11,25 @@ post '/messages' do
 		if logged_in?
 			@message = Message.new(content: params[:content], user_id: current_user.id)
 			if @message.save 
+				status 202
 				send_email(@message.content)
 				erb :'/messages/show', layout: false, locals: {messages: @messages}
 			else 
+				status 400 
 				@errors = @message.errors.full_messages
 				content_type :json
-    		{ errors: @errors}.to_json
+    		erb :"_errors", { layout: false, locals: { :errors => @errors }}
 			end 
 		else 
 			@message = Message.new(content: params[:content])
 			if @message.save 
+				status 202
 				send_email(@message.content)
 				erb :'/messages/show', layout: false, locals: {messages: @messages}
 			else 
+				status 400 
 				@errors = @message.errors.full_messages
-				content_type :json
-    		{ errors: @errors}.to_json
+				erb :"_errors", { layout: false, locals: { :errors => @errors }}
 			end 
 		end 
 	else 
